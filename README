@@ -1,0 +1,11 @@
+DEVICE_ATTR(_name, _mode, _show, _store)
+_name：名稱，也就是將在sysfs中生成的檔案名稱。
+_mode：上述檔案的讀取權限。(讀寫都行0666)
+_show：顯示函數，cat該文件時，此函數被執行。
+_store：寫函數，echo內容到該檔案時，此函數被執行。
+
+show函數寫法
+static ssize_t xxx_show(struct device *dev,struct device_attribute *attr, char *buf){ .... }
+
+store函數寫法
+static ssize_t xxx_store(struct device *dev,struct device_attribute *attr, const char *buf, size_t count)
